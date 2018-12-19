@@ -19,3 +19,14 @@ https://qiita.com/nnahito/items/565f8755e70c51532459
 
 # 環境
 github for desktopというのもお勧めです。。。  https://qiita.com/yukiyan/items/2ea3dc5813fdba5d9cd2
+
+# 便利コマンド
+## rsync
+
+エイリアス
+
+```bash
+rsyncbbgs='(){rsync -avcz $1 debian@192.168.6.2:~/$2}'
+rsyncbbg='(){rsync -avcz debian@192.168.6.2:~/$1 $2}'
+```
+
