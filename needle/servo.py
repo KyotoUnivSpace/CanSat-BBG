@@ -1,13 +1,13 @@
 from __future__ import division
 import time
 import math
-import Adafruit_PCA9685
+from PCA9685 import PCA9685
 import Adafruit_GPIO.I2C as I2C
 
 class Servo:
     # Operate seven servos. servo0~servo7
     def __init__(self):
-        self.pwm = Adafruit_PCA9685.PCA9685(busnum = 2, i2c = I2C)
+        self.pwm = PCA9685(busnum = 2, i2c = I2C)
         self.pwm.set_pwm_freq(50) # Hz
         self.zeroduty = 98
         self.piduty = 485
@@ -19,8 +19,8 @@ class Servo:
                 self.deg[i]=90-45
         for i in range(8):
             self.setDegree(i, self.deg[i])
-        
-        
+
+
     def setBasicDuty(self, zero, pi):
         # 1cycle--4096
         self.zeroduty = zero
@@ -31,7 +31,7 @@ class Servo:
             count = float(self.zeroduty) + (self.piduty - self.zeroduty) * degree / 180.0
             count = int(math.floor(count + 0.5))
             self.pwm.set_pwm(num, 0, count)
-            
+
     def rotate(self):
         flag=[True for _ in range(8)]
         diff=45
@@ -53,8 +53,8 @@ class Servo:
                 # r = input()
                 self.deg[i]=r
                 self.setDegree(i, r)
-        
-        
+
+
 
 if __name__ == "__main__":
     servo = Servo()
