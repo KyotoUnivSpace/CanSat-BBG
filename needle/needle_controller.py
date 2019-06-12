@@ -1,4 +1,5 @@
 import math
+import time
 
 from servo import Servo
 
@@ -33,4 +34,10 @@ class NeedleController:
 
 if __name__ == "__main__":
     needle = NeedleController(servo_distance = 10)
-    needle.set_length(num = 0, length = 2)
+    try:
+        while(True):
+            for i in range(10):
+                needle.set_length(num = 0, length = i)
+                time.sleep(0.2)
+    except KeyboardInterrupt:
+        pass
