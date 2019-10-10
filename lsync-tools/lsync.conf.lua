@@ -1,6 +1,6 @@
 -- variables
 local source = ".."
-local target = "debian@192.168.6.2:sync/CanSat-BBG"
+local target = "debian@beaglebone.local:sync/CanSat-BBG"
 local homeDir = os.getenv("HOME")
 
 -- lsyncd
