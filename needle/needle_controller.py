@@ -5,7 +5,7 @@ from servo import Servo
 
 
 class NeedleController:
-    def __init__(self, servo_distance, initial_degrees = [0.0] * 8):
+    def __init__(self, servo_distance, initial_degrees = [90.0] * 8):
         """
         Args
         ----------
@@ -28,8 +28,10 @@ class NeedleController:
         length : float
             The length of needle connected with the servo[num]
         """
-        radian = math.atan(length / self.servo_distance) + self.initial_degrees[num]
-        self.servo.setDegree(num, math.degrees(radian))
+        deg = math.degrees(math.atan(length / self.servo_distance)) + self.initial_degrees[num]
+        if num == 3:
+            print(deg)
+        self.servo.setDegree(num, deg)
 
 
 if __name__ == "__main__":
