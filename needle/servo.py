@@ -60,6 +60,8 @@ if __name__ == "__main__":
     servo = Servo()
     try:
         print("start")
-        servo.rotate()
+        servo.setDegree(7,70)
+        time.sleep(3)
+        servo.setDegree(7,110)
     except KeyboardInterrupt:
         pass
