@@ -3,6 +3,8 @@
 # これはMPU9250のセンサフュージョンを可能にするRTIMULib2のインストール用シェルスクリプトです．
 # これを実行したディレクトリ上にライブラリをクローンし，ライブラリをビルド・インストールします．
 
+cd $(dirname $0)
+
 echo "環境構築中..."
 sudo apt install cmake
 sudo apt install python-dev
